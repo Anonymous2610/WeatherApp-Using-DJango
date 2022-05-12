@@ -30,6 +30,5 @@ def home(request):
         result['temp_now'] = soup.find("div", attrs={"class": "BNeawe iBp4i AP7Wnd"}).text
         result['dayhour'], result['weather_now'] = soup.find("div", attrs={"class": "BNeawe tAd8D AP7Wnd"}).text.split(
             '\n')
-    else:
-        return Http404('invalid city name')
+    
     return render(request, 'core/index.html', {'result': result})
